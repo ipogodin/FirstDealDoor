@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.lastwar_game'
+version = '1.0-alpha'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    compileOnly project(':LastWarGameLogic')// правильное направление
+    compileOnly "io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+jar {
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+
+// остальной код (java version, processResources и т.д.) — оставь без изменений
