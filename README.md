@@ -2,7 +2,7 @@
 
 ## Overview
 
-FirstDealDoor is a multi-module Minecraft plugin project for PaperMC 1.20, featuring two main components:
+LaswWar is a multi-module Minecraft plugin project for PaperMC 1.20, featuring two main components:
 
 - **LastWarGame**: The main plugin for game orchestration, server selection, and player management.
 - **LastWarGameLogic**: The core game logic, including flag mechanics, core management, and custom commands.
